@@ -24,10 +24,17 @@ import { SafeAreaView} from 'react-native';
 
 export default function App() {
   return ( 
-    <View style={{padding: 50, flexDirection: 'row', width: '80%', height: 300 }}>
+    <View style={{padding: 50, 
+                  flexDirection: 'row', 
+                  width: '80%', 
+                  height: 300, 
+                  justifyContent: 'space-around',
+                  alignItems:'stretch' }}
+    >
       <View 
-        style= {{
+        style={{
           backgroundColor: 'red',
+          flex: 1,
           width: '100',
           height: '100',
           justifyContent: 'center',
@@ -39,6 +46,7 @@ export default function App() {
       <View
         style={{
           backgroundColor: 'blue',
+          flex: 1,
           width: '100',
           height: '100',
           justifyContent: 'center',
@@ -50,6 +58,7 @@ export default function App() {
       <View
         style={{
           backgroundColor: 'green',
+          flex: 1,
           width: '100',
           height: '100',
           justifyContent: 'center',
