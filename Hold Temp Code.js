@@ -23,30 +23,37 @@ import { InputAccessoryView} from 'react-native';
 import { SafeAreaView} from 'react-native';
 
 export default function App() {
-  return ( 
-    <View style={styles.appContainer}>
-      <View style= {styles.inputContainer}>
-        <TextInput style={styles.textInput} placeholder="Your course goal!" />
-        <Button title="Add Goal" />
-      </View> 
+  return (
+    <View style={styles.container}>
       <View>
-        <Text> List of goals...</Text>
+        <Text
+          style={styles.dummytext}
+        >
+          Who are you?      
+        </Text>
       </View>
+      <Text
+        style={styles.dummytext}
+        >
+         Hi there!!!
+        </Text>
+        <Button title= 'Touch Me'/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  appContainer: {
-    padding: 50,
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  inputContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  textInput: {
-    borderWidth: 1,
-    borderColor: '#cccccc',
-    width: '80%'
+  dummytext: {
+    margin:30,
+    backgroundColor: 'lightgreen',
+    borderWidth: 2, 
+    borderColor: 'purple', 
+    padding: 16
   }
 });
