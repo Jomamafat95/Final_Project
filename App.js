@@ -24,7 +24,7 @@ import { SafeAreaView} from 'react-native';
 
 export default function App() {
   return ( 
-    <View style={{padding: 50 }}>
+    <View style={{padding: 50, flexDirection: 'row', width: '80%', height: 300 }}>
       <View 
         style= {{
           backgroundColor: 'red',
