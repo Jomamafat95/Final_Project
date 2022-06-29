@@ -1,5 +1,5 @@
-import React from "react";
-
+import React from 'react';
+import {useState} from "react";
 import { StyleSheet, Text, View} from 'react-native';
 import { ActivityIndicator} from 'react-native';
 import { Button} from 'react-native';
@@ -23,50 +23,70 @@ import { InputAccessoryView} from 'react-native';
 import { SafeAreaView} from 'react-native';
 
 export default function App() {
+  const [enteredGoalText, setEnteredGoalText] = useState('');
+  const [courseGoals, setCourseGoals] = useState([]);
+
+  function goalInputHandler(enteredText) {
+    setEnteredGoalText(enteredText);
+  }
+
+  function addGoalHandler() {
+    setCourseGoals((currentCourseGoals) =>[
+      ...currentCourseGoals, 
+      enteredGoalText
+    ]);
+  }
+
   return ( 
-    <View style={{padding: 50, 
-                  flexDirection: 'row', 
-                  width: '80%', 
-                  height: 300, 
-                  justifyContent: 'space-around',
-                  alignItems:'stretch' }}
-    >
-      <View 
-        style={{
-          backgroundColor: 'red',
-          flex: 1,
-          width: '100',
-          height: '100',
-          justifyContent: 'center',
-          alignItems: 'center'  
-        }}
-      >
-        <Text>1</Text>
-      </View>
-      <View
-        style={{
-          backgroundColor: 'blue',
-          flex: 1,
-          width: '100',
-          height: '100',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-      >
-        <Text>2</Text>
-      </View>
-      <View
-        style={{
-          backgroundColor: 'green',
-          flex: 1,
-          width: '100',
-          height: '100',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-      >
-        <Text>3</Text>
+    <View style={styles.appContainer}>
+      <View style= {styles.inputContainer}>
+        <TextInput 
+          style={styles.textInput} 
+          placeholder="Your course goal!" 
+          onChangeText={goalInputHandler}
+        />
+        <Button title="Add Goal" onPress={addGoalHandler} />
+      </View> 
+      <View style ={styles.goalsContainer}>
+        {courseGoals.map((goal) => <Text key={goal}>{goal}</Text>)}
       </View>
     </View>
-    );
+  );
+}
+
+const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    padding: 50,
+    paddingHorizontal: 16
+
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: 'black',
+    width: '70%',
+    margin: 8,
+    padding: 8
+
+  },
+  inputContainer: {
+    flex: 2,
+    flexDirection: 'Row',
+    alignItems: 'Center',
+    justifyContent: 'Center',
+    marginBottom: 24,
+    borderBottomWidth: 1,
+    borderColor: 'purple',
+  
+  },
+  goalsContainer: {
+    flex: 6,
+    flexDirection: 'Column',
+    alignItems: 'center',
+    justifyContent: 'Flex-start',
+    padding: 15,
+    marginBottom: 10,
+    borderBottomWidth: 1,
+    borderColor: 'purple'  
   }
+  });
