@@ -21,8 +21,8 @@ import { ActivityIndicator,
          VirtualizedList
 } from 'react-native';
 
-import GoalItem from './components/GoalItem';
-import GoalInput from './components/GoalInput';
+import GoalItem from './components/GoalItem.js';
+import GoalInput from './components/GoalInput.js'; 
 
 export default function App() {
   const [modalIsVisible, setModalIsVisible] = useState(false)
