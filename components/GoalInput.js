@@ -8,7 +8,6 @@ import { ActivityIndicator,
          InputAccessoryView,
          KeyboardAvoidingView, 
          Modal,
-         Pressable, 
          RefreshControl,
          SafeAreaView,
          ScrollView,
@@ -30,40 +29,65 @@ function GoalInput (props) {
 
     function addGoalHandler() {
         props.onAddGoal(enteredGoalText);
-        setEnteredGoalText('');
+        setEnteredGoalText('../assets/images/BigBlueDivingClub.png');
     } 
 
      return (
-        <View style= {styles.inputContainer}>
-            <TextInput 
-                style={styles.textInput} 
-                placeholder="Your course goal!" 
-                onChangeText={goalInputHandler}
-                value={enteredGoalText}
-            />
-            <Button title="Add Goal" onPress={props.onAddGoal} />
-        </View>
+        <Modal visible ={props.visible} animationType="slide" >
+            <View style= {styles.inputContainer}>
+                <Image style={styles.image} source={require()} />
+                <TextInput 
+                    style={styles.textInput} 
+                    placeholder="Your course goal!" 
+                    onChangeText={goalInputHandler}
+                    value={enteredGoalText}
+                />
+                <View style={styles.buttonContainer}>
+                    <View style={styles.button}>
+                        <Button title="Add Goal" onPress={addGoalHandler} />
+                    </View>
+                    <View style={styles.button}>
+                        <Button title="Cancel" onPress={props.onCancel} />
+                    </View>
+                </View>
+            </View>
+        </Modal>
     );
 }
 
 export default GoalInput;
 
 const styles = StyleSheet.create({
-    textInput: {
-        borderWidth: 1,
-        borderColor: 'black',
-        width: '70%',
-        margin: 8,
-        padding: 8,
-      },
-    
-      inputContainer: {
+    inputContainer: {
         flex: 1,
-        flexDirection: 'Row',
         alignItems: 'Center',
         justifyContent: 'Center',
         marginBottom: 24,
+        padding: 16,
         borderBottomWidth: 2,
         borderColor: 'green',
-      },
+    },
+
+    textInput: {
+        borderWidth: 1,
+        borderColor: 'black',
+        width: '100%',
+        padding: 8,
+    },
+    
+    image: {
+        width: 100,
+        height: 100,
+        margin: 20
+    },
+      
+    buttonContainer: {
+        marginTop: 16,
+        flexDirection: 'row'
+    },
+
+    button: {
+        width: '100',
+        marginHorizontal: 8
+   }
 });

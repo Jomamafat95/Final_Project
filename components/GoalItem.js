@@ -22,11 +22,15 @@ import { ActivityIndicator,
 
 function GoalItem (props) {
     return (
-    <Pressable onPress={props.onDeleteItem.bind(this, props.id)}>
         <View style={styles.goalItem}>
-            <Text style={styles.goalText}>{props.text}</Text>
+            <Pressable 
+                android_ripple={{ color: 'purple' }} 
+                onPress={props.onDeleteItem.bind(this, props.id)}
+                style={({pressed}) => pressed && styles.pressedItem}
+            >         
+                <Text style={styles.goalText}>{props.text}</Text>
+            </Pressable>
         </View>
-    </Pressable>
     );
 }
 
@@ -35,12 +39,16 @@ export default GoalItem;
 const styles = StyleSheet.create({
     goalItem: {
         margin: 8,
-        padding: 8,
         borderRadius: 6,
         backgroundColor: 'brown',
-      },
+    },
     
-      goalText: {
-       color: 'white',
+    pressedItem: {
+        opacity: 0.5
+    },
+     
+    goalText: {
+       color: 'pink',
+       padding: 8
       },
 });
