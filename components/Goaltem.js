@@ -2,6 +2,7 @@ import { ActivityIndicator,
         Button, 
         DrawerLayoutAndroid,
         FlatList, 
+        FontWeight,
         Image, 
         ImageBackground, 
         InputAccessoryView,
@@ -22,13 +23,13 @@ import { ActivityIndicator,
 
 function GoalItem (props) {
     return (
-        <View style={styles.goalItem}>
+        <View style={styles.GoalItem}>
             <Pressable 
-                android_ripple={{ color: 'purple' }} 
+                android_ripple={{ color: '9F2B68' }} 
                 onPress={props.onDeleteItem.bind(this, props.id)}
                 style={({pressed}) => pressed && styles.pressedItem}
             >         
-                <Text style={styles.goalText}>{props.text}</Text>
+                <Text style={styles.GoalText}>{props.text}</Text>
             </Pressable>
         </View>
     );
@@ -37,18 +38,19 @@ function GoalItem (props) {
 export default GoalItem;
 
 const styles = StyleSheet.create({
-    goalItem: {
+    GoalItem: {
         margin: 8,
         borderRadius: 6,
-        backgroundColor: 'brown',
+        backgroundColor: '#F96A2B',
     },
     
     pressedItem: {
         opacity: 0.5
     },
      
-    goalText: {
-       color: 'pink',
+    GoalText: {
+       color: '#FFFFFF',
+       FontWeight: 25,
        padding: 8
       },
 });

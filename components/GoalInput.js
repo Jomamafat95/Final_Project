@@ -29,25 +29,40 @@ function GoalInput (props) {
 
     function addGoalHandler() {
         props.onAddGoal(enteredGoalText);
-        setEnteredGoalText('../assets/images/BigBlueDivingClub.png');
+        setEnteredGoalText('');
     } 
 
      return (
-        <Modal visible ={props.visible} animationType="slide" >
+        <Modal 
+            visible ={props.visible} 
+            animationType="slide" >
+            
             <View style= {styles.inputContainer}>
-                <Image style={styles.image} source={require()} />
+                <Image 
+                    style={styles.image} 
+                    source={require('../assets/images/ScubaDiver.png')} 
+                />
+                
                 <TextInput 
                     style={styles.textInput} 
-                    placeholder="Your course goal!" 
+                    placeholder="Enter Your Scuba Achievements!!!" 
                     onChangeText={goalInputHandler}
                     value={enteredGoalText}
                 />
+                
                 <View style={styles.buttonContainer}>
                     <View style={styles.button}>
-                        <Button title="Add Goal" onPress={addGoalHandler} />
+                        <Button 
+                            title="Add Achievements" 
+                            onPress={addGoalHandler} 
+                            color="#0F6410"/> 
                     </View>
+                    
                     <View style={styles.button}>
-                        <Button title="Cancel" onPress={props.onCancel} />
+                        <Button 
+                            title="Cancel" 
+                            onPress={props.onCancel} 
+                            color="#FD0000"/> 
                     </View>
                 </View>
             </View>
@@ -62,23 +77,24 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'Center',
         justifyContent: 'Center',
-        marginBottom: 24,
         padding: 16,
-        borderBottomWidth: 2,
-        borderColor: 'green',
-    },
-
-    textInput: {
-        borderWidth: 1,
-        borderColor: 'black',
-        width: '100%',
-        padding: 8,
+        backgroundColor: '#0096FF',
     },
     
     image: {
-        width: 100,
-        height: 100,
+        width: 450,
+        height: 200,
         margin: 20
+    },
+
+    textInput: {
+        borderWidth: 2,
+        borderColor: '000000',
+        borderRadius: 6,
+        backgroundColor: '#89CFF0',
+        color: '#000000',
+        width: '100%',
+        padding: 16,
     },
       
     buttonContainer: {
