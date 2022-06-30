@@ -47,13 +47,13 @@ export default function App() {
         />
         <Button title="Add Goal" onPress={addGoalHandler} />
       </View> 
-      <View style ={styles.goalsContainer}>
+      <ScrollView style={styles.goalsContainer}>
         {courseGoals.map((goal) => (
           <View key={goal} style={styles.goalItem}>
             <Text style={styles.goalText}>{goal}</Text>
           </View>
         ))}
-      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
     padding: 50,
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
 
   },
   textInput: {
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     width: '70%',
     margin: 8,
-    padding: 8
+    padding: 8,
 
   },
   inputContainer: {
@@ -79,8 +79,8 @@ const styles = StyleSheet.create({
     alignItems: 'Center',
     justifyContent: 'Center',
     marginBottom: 24,
-    borderBottomWidth: 1,
-    borderColor: 'purple',
+    borderBottomWidth: 2,
+    borderColor: 'green',
   
   },
   goalsContainer: {
@@ -89,15 +89,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'Flex-start',
     padding: 15,
-    marginBottom: 10
+    marginBottom: 10,
   },
   goalItem: {
     margin: 8,
     padding: 8,
     borderRadius: 6,
-    backgroundColor: '#5e0acc'
+    backgroundColor: 'brown',
   },
-goalText: {
-   color: 'white'
-}
-  });
+  goalText: {
+   color: 'white',
+  }
+});
